@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<aop:aspectj-autoproxy />
+
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
+
+	<!-- 配置要扫描的包 -->
+	<context:component-scan base-package="com.discovery.darchrow.single.impl"></context:component-scan>
+
+	<import resource="classpath*:spring/spring-dao.xml" />
+	<import resource="classpath*:spring/spring-cache.xml" />
+
+	<bean id="environmentVariablesConfiguration"
+		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm" value="PBEWITHSHA256AND256BITAES-CBC-BC" />
+		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
+	</bean>
+
+
+	<bean id="bouncyCastleProvider" class="org.bouncycastle.jce.provider.BouncyCastleProvider" />
+
+	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<property name="provider" ref="bouncyCastleProvider" />
+		<property name="config" ref="environmentVariablesConfiguration" />
+	</bean>
+	<bean id="propertyConfigurer"
+		class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+		<constructor-arg ref="configurationEncryptor" />
+		<property name="locations">
+			<list>
+				<value>classpath*:config/init.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="utf-8" />
+	</bean>
+	
+</beans>  
+ 
