@@ -23,14 +23,77 @@
 		
 		<dependency>
 			<groupId>com.discovery.darchrow</groupId>
-			<artifactId>single-repo-impl</artifactId>
+			<artifactId>single-api-saas</artifactId>
 			<version>${version.single-demo}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.discovery.darchrow</groupId>
-			<artifactId>single-repo-second-impl</artifactId>
+			<artifactId>single-api-impl-saas</artifactId>
 			<version>${version.single-demo}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+		</dependency>
+		
+		<!--********************** spring-security ************************* -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<!-- ********************** 数据库相关：mysql驱动 ************************* -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${version.mysql-connector-java}</version>
+		</dependency>
+		
+		<!-- ********************** 数据库相关：druid ************************* -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${version.druid}</version>
+		</dependency>
+		<!-- ******************* spring ********************************* -->
+		<!--********************** mybatis ************************* -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${version.mybatis}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${version.mybatis-spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
 		</dependency>
    </dependencies>
   
