@@ -23,13 +23,7 @@
 		
 		<dependency>
 			<groupId>com.discovery.darchrow</groupId>
-			<artifactId>single-api-saas</artifactId>
-			<version>${version.single-demo}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.discovery.darchrow</groupId>
-			<artifactId>single-api-impl-saas</artifactId>
+			<artifactId>single-repo-impl</artifactId>
 			<version>${version.single-demo}</version>
 		</dependency>
 		

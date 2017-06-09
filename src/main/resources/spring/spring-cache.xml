@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
 	xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
-	<!-- turn on declarative caching -->
+	turn on declarative caching
 	<cache:annotation-driven cache-manager="cacheManager" />
 
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
@@ -46,7 +46,7 @@
 		<constructor-arg ref="poolConfig" />
 	</bean>
 
-	<!-- redis template definition -->
+	redis template definition
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
 		p:connection-factory-ref="jedisConnectionFactory">
 		<property name="keySerializer">
@@ -59,7 +59,7 @@
 		</property>
 	</bean>
 
-	<!-- generic cache manager -->
+	generic cache manager
 	<bean id="simpleCacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
 			<set>
@@ -70,7 +70,7 @@
 		</property>
 	</bean>
 
-	<!-- dummy cacheManager -->
+	dummy cacheManager
 	<bean id="cacheManager" class="org.springframework.cache.support.CompositeCacheManager">
 		<property name="cacheManagers">
 			<list>
@@ -81,7 +81,7 @@
 		<property name="fallbackToNoOpCache" value="true" />
 	</bean>
 
-	<!-- declare Redis Cache Manager -->
+	declare Redis Cache Manager
 	<bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager"
 		c:template-ref="redisTemplate">
 		<property name="expires">
@@ -92,4 +92,4 @@
 	</bean>
 
 </beans>
- 
+  -->
